@@ -38,12 +38,12 @@ const ClassesCard = ({ approvedClass }) => {
     } else if (!user) {
       Swal.fire({
         title: "Login Required",
-        text: "Please take me to the login page",
+        text: "Wanna go to the login page",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "go to login page",
+        confirmButtonColor: "#008000",
+        cancelButtonColor: "#ff0000",
+        confirmButtonText: "Yes",
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/login");
@@ -53,43 +53,44 @@ const ClassesCard = ({ approvedClass }) => {
   };
 
   return (
-    <div className="card card-compact bg-base-100 shadow-xl border border-orange-500 space-y-3">
-      <figure>
+    <div className="bg-gray-100 group rounded-lg tracking-wider text-lg">
+      <div className="h-[250px] overflow-hidden rounded-lg">
         <img
-          className="w-full h-[250px] object-cover"
           src={photoUrl}
-          alt="Shoes"
+          alt="instrument photo"
+          className="w-full h-full object-cover object-center group-hover:scale-110 transition-all duration-700"
         />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title capitalize font-bold">{className} Class</h2>
-        <p className="text-lg">
-          <span className="font-semibold">Instractor</span> : {instractorName}
+      </div>
+      <div className="p-2">
+        <h2 className="class-name text-center font-semibold tracking-widest my-2 text-lg md:text-xl xl:text-2xl">
+          {className}
+        </h2>
+        <p>
+          <span className="font-semibold">Instructor : </span>
+          {instractorName}
         </p>
-        <div className="flex justify-between text-md">
-          <p>
-            <span className="font-semibold">Available Seats</span> :{" "}
-            {availableSeats}
-          </p>
-          <p>
-            <span className="font-semibold">Price</span> : ${price}
-          </p>
-        </div>
-        <div className="card-actions justify-center">
-          {isAdmin || isInstractor ? (
-            <button className="custom-btn" disabled>
-              Select Class
-            </button>
-          ) : (
-            <button
-              onClick={() => handleSelectClass(approvedClass)}
-              className="custom-btn"
-              disabled={disable}
-            >
-              Select Class
-            </button>
-          )}
-        </div>
+        <p>
+          <span className="font-semibold">Available Seats : </span>
+          {availableSeats}
+        </p>
+        <p>
+          <span className="font-semibold">Price : </span> ${price}
+        </p>
+      </div>
+      <div className="flex justify-end mx-4">
+        {isAdmin || isInstractor ? (
+          <button className="custom-btn" disabled>
+            Select Class
+          </button>
+        ) : (
+          <button
+            onClick={() => handleSelectClass(approvedClass)}
+            className="custom-btn"
+            disabled={disable}
+          >
+            Select Class
+          </button>
+        )}
       </div>
     </div>
   );

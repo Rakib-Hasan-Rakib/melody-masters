@@ -65,7 +65,7 @@ const Navbar = () => {
         <NavProfile />
       </li>
       {isProfileMenuOpen && user && (
-        <div className="bg-black opacity-90 flex flex-col absolute top-16 right-0 z-50 w-24 md:w-32 rounded-md space-y-1">
+        <div className="bg-black opacity-90 z-50 flex flex-col absolute top-16 right-0 w-24 md:w-32 rounded-md space-y-1">
           <Link
             to="/dashboard"
             className="px-2 md:px-4 py-1 hover:text-green-500"
@@ -81,7 +81,7 @@ const Navbar = () => {
         </div>
       )}
       {isProfileMenuOpen && !user && (
-        <div className="bg-black opacity-90 flex flex-col absolute top-16 right-0 z-50 w-24 md:w-32 rounded-md space-y-1">
+        <div className="bg-black opacity-90 z-50 flex flex-col absolute top-16 right-0 w-24 md:w-32 rounded-md space-y-1">
           <Link
             to="/register"
             className="px-2 md:px-4 py-1 hover:text-green-400"

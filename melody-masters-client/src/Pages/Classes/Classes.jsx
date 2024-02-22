@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
 import ClassesCard from "./ClassesCard";
 import { Fade } from "react-awesome-reveal";
+import Container from "../../Components/Container";
 
 const Classes = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -16,19 +17,17 @@ const Classes = () => {
   );
 
   return (
-    <div>
+    <Container>
       <Fade delay={1e2} cascade damping={1e-1}>
-        <h2 className="section-title">
-          total classes: {approvedClasses.length}
-        </h2>
+        <h2 className="section-title">Explore Our Curriculum</h2>
       </Fade>
 
-      <div className="grid md:grid-cols-3 gap-8 my-8 md:my-12">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-8 md:my-12">
         {approvedClasses.map((approvedClass, i) => (
           <ClassesCard approvedClass={approvedClass} key={i} />
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
