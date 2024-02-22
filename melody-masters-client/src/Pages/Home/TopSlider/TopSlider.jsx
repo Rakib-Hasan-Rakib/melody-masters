@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import "swiper/css/thumbs";
+
+import "./topslider.css";
+import { Autoplay, Navigation, FreeMode, Thumbs } from "swiper";
 
 import slider_1 from "../../../assets/images/top-slider-image/slider-1.jpg";
 import slider_2 from "../../../assets/images/top-slider-image/slider-2.jpg";
@@ -13,24 +16,24 @@ import slider_5 from "../../../assets/images/top-slider-image/slider-5.jpg";
 import slider_6 from "../../../assets/images/top-slider-image/slider-6.jpg";
 
 const TopSlider = () => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
-    <div className="">
+    <>
       <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
+        style={{
+          "--swiper-navigation-color": "#fff",
+          "--swiper-pagination-color": "#fff",
         }}
-        pagination={{
-          clickable: true,
-        }}
+        loop={true}
+        spaceBetween={10}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper2 h-[90vh] -z-50"
       >
         <SwiperSlide>
-          <img  src={slider_1} alt="" />
+          <img src={slider_1} alt="" />
         </SwiperSlide>
         <SwiperSlide>
           <img src={slider_2} alt="" />
@@ -48,7 +51,36 @@ const TopSlider = () => {
           <img src={slider_6} alt="" />
         </SwiperSlide>
       </Swiper>
-    </div>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        loop={true}
+        spaceBetween={10}
+        slidesPerView={4}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src={slider_1} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slider_2} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slider_3} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slider_4} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slider_5} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slider_6} />
+        </SwiperSlide>
+      </Swiper>
+    </>
   );
 };
 

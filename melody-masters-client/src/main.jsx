@@ -6,10 +6,7 @@ import Router from "./Routers/Router.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./Providers/AuthProvider";
 
-import {
-  QueryClient,
-  QueryClientProvider,
-} from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
 
@@ -17,9 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
       <HelmetProvider>
-        <div className="w-11/12 mx-auto">
-          <RouterProvider router={Router}></RouterProvider>
-        </div>
+        <RouterProvider router={Router}></RouterProvider>
       </HelmetProvider>
     </AuthProvider>
   </QueryClientProvider>

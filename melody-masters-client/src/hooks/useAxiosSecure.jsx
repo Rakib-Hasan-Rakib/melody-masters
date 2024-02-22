@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const axiosSecure = axios.create({
-  baseURL: "https://melody-masters-server.vercel.app",
+  baseURL: import.meta.env.VITE_SERVER_URL,
 });
 
 const useAxiosSecure = () => {

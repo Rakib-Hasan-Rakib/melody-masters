@@ -1,0 +1,29 @@
+.swiper:nth-child(2) .swiper-wrapper {
+    margin: 10px auto;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+}
+
+.swiper-slide-visible {
+    border-radius: 5px;
+    width: 150px !important;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+.swiper-slide-visible img{
+    border-radius: 4px;
+}
+
+.swiper-slide-thumb-active {
+    border: 2px solid red;
+}
+.swiper-button-prev,.swiper-button-next{
+    display: none;
+}
+@media (max-width:576px) {
+    .swiper:nth-child(2) .swiper-wrapper {
+            margin: 2px auto;
+        }
+}

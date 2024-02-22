@@ -28,21 +28,23 @@ const verifyJWT = (req, res, next) => {
 
 
 
-const uri = `mongodb+srv://${process.env.MELODY_MASTERS_USER}:${process.env.MELODY_MASTERS_PASS}@cluster0.umvg5wn.mongodb.net/?retryWrites=true&w=majority`;
+const uri =
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.umvg5wn.mongodb.net/?retryWrites=true&w=majority`;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
 });
+
+
 
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
+        // await client.connect();
 
         const usersCollection = client.db("melodyMastersDB").collection("users");
         const classCollection = client.db("melodyMastersDB").collection("classes")

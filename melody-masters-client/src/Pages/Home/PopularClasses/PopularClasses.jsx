@@ -3,7 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
-
+import Container from "../../../Components/Container";
 
 const PopularClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -16,7 +16,7 @@ const PopularClasses = () => {
     }
   );
   return (
-    <div>
+    <Container>
       <Fade delay={1e2} cascade damping={1e-1}>
         <h2 className="section-title">popular classes of our instractors</h2>
       </Fade>
@@ -61,7 +61,7 @@ const PopularClasses = () => {
           );
         })}
       </div>
-    </div>
+    </Container>
   );
 };
 
