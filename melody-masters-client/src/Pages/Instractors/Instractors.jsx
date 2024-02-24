@@ -1,52 +1,31 @@
 import React from "react";
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import InstructorCard from "../../Components/cards/InstructorCard";
+import Container from "../../Components/Container";
 
 const Instractors = () => {
   const [axiosSecure] = useAxiosSecure();
 
-  const { data: instractors = [] } = useQuery(
+  const { data: instructors = [] } = useQuery(
     ["/users/instractors"],
     async () => {
       const res = await axiosSecure.get("/users/instractors");
       return res.data;
     }
   );
-//   console.log(instractors);
+
+
+
   return (
-    <div>
-      <h2 className="section-title">
-        total instractors : {instractors.length}{" "}
-      </h2>
-      <div className="grid md:grid-cols-3 gap-8 my-8 md:my-12">
-        {instractors?.map((instractor, i) => {
-          return (
-            <div
-              key={i}
-              className="card card-compact bg-base-100 shadow-xl border border-cyan-700 space-y-3"
-            >
-              <figure>
-                <img
-                  className="w-full h-[300px] object-cover"
-                  src={instractor.photo}
-                  alt="Shoes"
-                />
-              </figure>
-              <div className="card-body">
-                <p className="text-lg ">
-                  <span className="font-semibold">Instractor Name </span>:{" "}
-                  {instractor.name}
-                </p>
-                <p className="text-lg ">
-                  <span className="font-semibold">Instractor Email </span>:{" "}
-                  {instractor.email}
-                </p>
-              </div>
-            </div>
-          );
+    <Container>
+      <h2 className="section-title">Meet Our Expert Team</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-8 md:my-12">
+        {instructors?.map((instructor, i) => {
+          return <InstructorCard key={i} instructor={instructor} />;
         })}
       </div>
-    </div>
+    </Container>
   );
 };
 

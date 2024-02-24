@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-// import Menu from "./Menu";
 import NavProfile from "./NavProfile";
-// import Container from "../../components/Container";
-import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
-// import { AiOutlineMenu } from "react-icons/ai";
-import logo from "../../assets/images/logos/MelodyMasters-removebg-preview.png";
 import Headroom from "react-headroom";
 import useAuth from "../../hooks/useAuth";
 import { Bars3Icon } from "@heroicons/react/24/solid";
