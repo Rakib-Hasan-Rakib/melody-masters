@@ -8,8 +8,6 @@
 
 
 
-
-
 body {
     font-family: "Annapurna SIL", serif;
     font-weight: 400;
@@ -39,7 +37,7 @@ body {
 
 .custom-btn {
     background-color: #D69A3A;
-    @apply px-4 py-1 rounded-full text-white capitalize my-2 tracking-wider transition-all duration-200
+    @apply px-4 py-1 rounded-full text-white capitalize my-2 tracking-wider transition-all duration-200 cursor-pointer
 }
 
 .custom-btn:hover {
@@ -49,4 +47,13 @@ body {
 
 .title {
     color: #D69A3A;
+}
+
+.form-part {
+    @apply flex flex-col gap-1
+}
+
+.form-part .form-input {
+    border: 1px solid #D69A3A;
+    @apply outline-none px-3 py-1 rounded-sm text-black
 }

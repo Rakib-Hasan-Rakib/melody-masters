@@ -21,7 +21,7 @@ const PopularInstractors = () => {
   return (
     <Container>
       <Fade delay={1e2} cascade damping={1e-1}>
-        <h2 className="section-title">our popular instractors</h2>
+        <h2 className="section-title">popular instractors</h2>
       </Fade>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-8 md:my-12">
