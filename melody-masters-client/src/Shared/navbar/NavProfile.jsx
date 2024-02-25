@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
 import avatar from "../../assets/images/avatar.jpg";
-// import { AuthContext } from "../../providers/AuthProvider";
-// import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const NavProfile = () => {
-  // const { user } = useContext(AuthContext);
-  let user;
+  const { user } = useAuth();
+
   return (
     <img
       className="rounded-full w-12 cursor-pointer"

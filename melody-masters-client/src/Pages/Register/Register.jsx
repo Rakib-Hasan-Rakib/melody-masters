@@ -8,6 +8,7 @@ import ErrorAlert from "../../Components/Alerts/ErrorAlert";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin";
 import LoginAnim from "../../Components/animations/LoginAnim";
+import axios from "axios";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -37,21 +38,16 @@ const Register = () => {
               email: data.email,
               photo: data.photoUrl,
             };
-            fetch("https://melody-masters-server.vercel.app/users", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(registerdUser),
-            })
-              .then((res) => res.json())
+            axios
+              .post(`${import.meta.env.VITE_SERVER_URL}/users`, registerdUser)
               .then((data) => {
-                if (data.insertedId) {
+                if (data.data.insertedId) {
                   reset();
                   SuccessAlert("Your Account Created Successfully");
                   navigate(from, { replace: true });
                 }
-              });
+              })
+              .catch((error) => ErrorAlert(error.message));
           })
           .catch((error) => {
             ErrorAlert(error.message);

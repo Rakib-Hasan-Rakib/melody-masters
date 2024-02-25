@@ -9,7 +9,7 @@ import Container from "../../Components/Container";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  const { user, logOut } = useAuth();
+  const { user, logOutUser } = useAuth();
   const MenuItem = (
     <>
       <li>
@@ -39,7 +39,7 @@ const Navbar = () => {
       <li className="block md:hidden">
         {user ? (
           <NavLink
-            onClick={() => logOut()}
+            onClick={() => logOutUser()}
             className={({ isActive }) => (isActive ? "active" : "default")}
           >
             Logout
@@ -68,7 +68,7 @@ const Navbar = () => {
             Dashboard
           </Link>
           <Link
-            onClick={() => logOut()}
+            onClick={() => logOutUser()}
             className="px-2 md:px-4 py-1 hover:text-green-500"
           >
             Logout

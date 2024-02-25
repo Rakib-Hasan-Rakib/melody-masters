@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         axios
-          .post("https://melody-masters-server.vercel.app/jwt", {
+          .post(`${import.meta.env.VITE_SERVER_URL}/jwt`, {
             email: currentUser.email,
           })
           .then((data) => {
